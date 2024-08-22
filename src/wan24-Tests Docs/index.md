@@ -4,6 +4,11 @@ This library contains some test project helpers.
 
 ## Usage
 
+### How to get it
+
+THis package is available as 
+[NuGet package `wan24-Tests`](https://www.nuget.org/packages/wan24-Tests/).
+
 ### Add options using an assembly attribute
 
 Create the file `Attributes.cs` with this content:
