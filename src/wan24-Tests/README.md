@@ -25,41 +25,6 @@ event handling method:
 | `OnBeforeTestsInitialization` | Run before tests initialization |
 | `OnBeforeTestsInitialization` | Run before tests initialization |
 
-### Tests initialization
-
-The tests initialization does the following for you:
-
-- Configure `wan24-Core` NuGet package logging (using a log file and the 
-console)
-- Configure the MS test project logging
-- Logging background errors
-- Logging object validation errors of the `ObjectValidation` NuGet package
-- Optional enable creating a construction stack information for disposable 
-types which extend `wan24.Core.Disposable(Record)Base`
-- Booting `wan24-Core`
-
-It needs to run before any tests are being executed. To achive this, please 
-ass the file `Initialization.cs` to your test project:
-
-```cs
-namespace wan24.Tests
-{
-    [TestClass]
-    public class Initialization
-    {
-        [AssemblyInitialize]
-        public static void Init(TestContext tc) => TestsInitialization.Init(tc);
-    }
-}
-```
-
-The `TestsInitialization` type exports some static properties:
-
-| Property | Description |
-| -------- | ----------- |
-| `LoggerFactory` | A logger factory |
-| `Options` | The used tests options (`TestsOptionsAttribute`) |
-
 ### Using `TestBase` as base class for a test
 
 Example test:
@@ -91,4 +56,32 @@ The `TestBase` type defines these properties:
 | Property | Description |
 | -------- | ----------- |
 | `TestContext` | The current test context |
-| `Logger` | An `ILogger` instance, using `Logging.Logger` or a new created one from `TestsInitialization.LoggerFactory` |
+| `Logger` | An `ILogger` instance |
+
+### Tests initialization
+
+The tests initialization does the following for you:
+
+- Configure `wan24-Core` NuGet package logging (using a log file and the 
+console)
+- Configure the MS test project logging
+- Logging background errors
+- Logging object validation errors of the `ObjectValidation` NuGet package
+- Optional enable creating a construction stack information for disposable 
+types which extend `wan24.Core.Disposable(Record)Base`
+- Booting `wan24-Core`
+
+It needs to run before any tests are being executed. To achive this, please 
+ass the file `Initialization.cs` to your test project:
+
+```cs
+namespace wan24.Tests
+{
+    [TestClass]
+    public class Initialization
+    {
+        [AssemblyInitialize]
+        public static void Init(TestContext tc) => TestsInitialization.Init(tc);
+    }
+}
+```
