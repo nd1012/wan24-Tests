@@ -1,0 +1,17 @@
+{
+  "api/index.html": {
+    "href": "api/index.html",
+    "title": "API reference | wan24-Tests",
+    "keywords": "API reference Choose a type from the left to start browsing."
+  },
+  "articles/intro.html": {
+    "href": "articles/intro.html",
+    "title": "Add your introductions here! | wan24-Tests",
+    "keywords": "Add your introductions here!"
+  },
+  "index.html": {
+    "href": "index.html",
+    "title": "wan24-Tests | wan24-Tests",
+    "keywords": "wan24-Tests This library contains some test project helpers. Usage Add options using an assembly attribute Create the file Attributes.cs with this content: using wan24.Tests; [assembly: TestsOptions(...)] You can set several options using the attribute properties. You may also implement a custom attribute which extends TestsOptions and may override any event handling method: Method Description OnBeforeInitialization Run before global initialization OnAfterInitialization Run after global initialization OnBeforeTestsInitialization Run before tests initialization OnBeforeTestsInitialization Run before tests initialization Tests initialization The tests initialization does the following for you: Configure wan24-Core NuGet package logging (using a log file and the console) Configure the MS test project logging Logging background errors Logging object validation errors of the ObjectValidation NuGet package Optional enable creating a construction stack information for disposable types which extend wan24.Core.Disposable(Record)Base Booting wan24-Core It needs to run before any tests are being executed. To achive this, please ass the file Initialization.cs to your test project: namespace wan24.Tests { [TestClass] public class Initialization { [AssemblyInitialize] public static void Init(TestContext tc) => TestsInitialization.Init(tc); } } The TestsInitialization type exports some static properties: Property Description LoggerFactory A logger factory Options The used tests options (TestsOptionsAttribute) Using TestBase as base class for a test Example test: [TestClass] public class YourTests : TestBase { ... } The TestBase will log the currently running test, which makes it more easy to see where tests failed, if you're running them from the CLI. For running initialization code after the TestOptionsAttribute event handlers you may override the InitTests method: [TestInitialize] public override void InitTests() { base.InitTests(); // Your tests initialization code here } The TestBase type defines these properties: Property Description TestContext The current test context Logger An ILogger instance, using Logging.Logger or a new created one from TestsInitialization.LoggerFactory"
+  }
+}
