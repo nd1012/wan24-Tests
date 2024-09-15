@@ -148,7 +148,7 @@ types which extend <code>wan24.Core.Disposable(Record)Base</code></li>
 <li>Booting <code>wan24-Core</code></li>
 </ul>
 <p>It needs to run before any tests are being executed. To achive this, please
-ass the file <code>Initialization.cs</code> to your test project:</p>
+add the file <code>Initialization.cs</code> to your test project:</p>
 <pre><code class="lang-cs">namespace wan24.Tests
 {
     [TestClass]
@@ -216,6 +216,52 @@ public override void InitTests()
 </tr>
 </tbody>
 </table>
+<h3 id="interface-testing">Interface testing</h3>
+<p>There are some static test methods for types which implement interfaces:</p>
+<table>
+<thead>
+<tr>
+<th>Interface</th>
+<th>Test method</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>IDictionary(&lt;tKey, tValue&gt;)</code></td>
+<td><code>DictionaryTests.RunTests</code></td>
+</tr>
+<tr>
+<td><code>ICollection(&lt;T&gt;)</code></td>
+<td><code>CollectionTests.RunTests</code></td>
+</tr>
+<tr>
+<td><code>IList(&lt;T&gt;)</code></td>
+<td><code>ListTests.RunTests</code></td>
+</tr>
+<tr>
+<td><code>I(Async)Enumerable(&lt;T&gt;)</code></td>
+<td><code>EnumerableTests.RunTests(Async)</code></td>
+</tr>
+</tbody>
+</table>
+<p>Since it's impossible to define a fixed test data set which works well for all
+types which implement those interfaces (-&gt; but we never know <em>how</em> a type
+implemented an interface <em>for which data type</em>), those tests do only cover a
+very basic set of functional tests, and you'll have to provide a test data set
+for each method (see <code>Tests.cs</code> in the source code). Example:</p>
+<pre><code class="lang-cs">DictionaryTests.RunTests&lt;OrderedDictionary&lt;string, string&gt;, string, string&gt;(
+    new KeyValuePair&lt;string, string&gt;(&quot;a&quot;, &quot;a&quot;),
+    new KeyValuePair&lt;string, string&gt;(&quot;b&quot;, &quot;b&quot;)
+    );
+</code></pre>
+<p>In case the tested type can't be constructed from the static test methods,
+there are overloads which accept an existing instance. A test data set must
+contain at last two items, while an existing instance may contain test data
+or not - that depends on the interface (please see the DocComments for each
+test methods requirements).</p>
+<p>More detailed tests need to be implemented by yourself. However, I'm open for
+adding more basic tests, if they could be applied to all types which implement
+an interface. Don't hesitate to contribute.</p>
 
 </article>
                 </div>
