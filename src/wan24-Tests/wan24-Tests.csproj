@@ -9,7 +9,7 @@
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <PackageId>wan24-Tests</PackageId>
     <Title>wan24-Tests</Title>
-    <Version>1.1.0</Version>
+    <Version>1.2.0</Version>
     <Authors>nd1012</Authors>
     <Company>Andreas Zimmermann, wan24.de</Company>
     <Product>wan24-Tests</Product>
@@ -36,9 +36,9 @@
     <PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="8.0.0" />
     <PackageReference Include="MSTest.TestFramework" Version="3.6.0" />
-    <PackageReference Include="ObjectValidation" Version="2.7.0" Condition="'$(Configuration)' != 'Trunk'" />
+    <PackageReference Include="ObjectValidation" Version="2.8.0" Condition="'$(Configuration)' != 'Trunk'" />
     <PackageReference Include="System.Text.Json" Version="8.0.4" />
-    <PackageReference Include="wan24-Core" Version="2.37.0" Condition="'$(Configuration)' != 'Trunk'" />
+    <PackageReference Include="wan24-Core" Version="2.38.0" Condition="'$(Configuration)' != 'Trunk'" />
   </ItemGroup>
 
   <ItemGroup>
