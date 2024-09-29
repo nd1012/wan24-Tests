@@ -52,6 +52,6 @@ Global
 		SolutionGuid = {6FF74581-CF86-452D-BFB9-26E8132BA242}
 	EndGlobalSection
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		..\..\wan24-Core-Shared\src\wan24-Core-Shared\wan24-Core-Shared.projitems*{5b36d208-6d26-4170-b9f6-a44b6d9663d3}*SharedItemsImports = 5
+		..\..\wan24-Core\src\Others\wan24-Core-Shared\src\wan24-Core-Shared\wan24-Core-Shared.projitems*{5b36d208-6d26-4170-b9f6-a44b6d9663d3}*SharedItemsImports = 5
 	EndGlobalSection
 EndGlobal
