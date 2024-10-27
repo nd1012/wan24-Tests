@@ -62,6 +62,14 @@ namespace wan24.Tests
             {
                 DisposableBase.CreateStackInfo = true;
                 DisposableRecordBase.CreateStackInfo = true;
+                SimpleDisposableBase.CreateStackInfo = true;
+                SimpleDisposableRecordBase.CreateStackInfo = true;
+                BasicAllDisposableBase.CreateStackInfo = true;
+                BasicAllDisposableRecordBase.CreateStackInfo = true;
+                BasicAsyncDisposableBase.CreateStackInfo = true;
+                BasicAsyncDisposableRecordBase.CreateStackInfo = true;
+                BasicDisposableBase.CreateStackInfo = true;
+                BasicDisposableRecordBase.CreateStackInfo = true;
             }
             // Boot
             Logging.WriteInfo("Tests initialized");
